@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mika Masaże — Gabinet masażu w Koszalinie</title>
+<meta name="description" content="Mika Masaże — kameralny gabinet masażu w Koszalinie. Masaże klasyczne i upiększające. Indywidualne podejście, możliwość dojazdu.">
+<meta property="og:title" content="Mika Masaże — Gabinet masażu w Koszalinie">
+<meta property="og:description" content="Masaż, po którym oddychasz inaczej. Umów wizytę w Koszalinie.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C16 3 7 15.5 7 21.5a9 9 0 0 0 18 0C25 15.5 16 3 16 3Z' fill='%23C1832E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ============ TOKENS ============ */
+  :root{
+    --sand:#EFE6D4;
+    --paper:#FAF6EC;
+    --ink:#1B2624;
+    --ink-muted:rgba(27,38,36,.64);
+    --pine:#142420;
+    --pine-2:#1D3129;
+    --pine-text:#F6F1E4;
+    --pine-muted:rgba(246,241,228,.66);
+    --amber:#C1832E;
+    --amber-light:#E3B368;
+    --sea:#45726B;
+    --line-light:rgba(27,38,36,.14);
+    --line-dark:rgba(246,241,228,.16);
+    --shadow:0 20px 50px -25px rgba(20,36,32,.35);
+    --serif:"Newsreader", Georgia, "Times New Roman", serif;
+    --sans:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --container:1180px;
+    --radius:22px;
+  }
+
+  /* ============ RESET ============ */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--sand);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  button{font:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.12;letter-spacing:-.01em;}
+  .skip-link{position:absolute;left:-999px;top:0;background:var(--amber);color:var(--pine);padding:.75rem 1.25rem;z-index:200;border-radius:0 0 10px 0;}
+  .skip-link:focus{left:0;}
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px;}
+
+  .wrap{max-width:var(--container);margin-inline:auto;padding-inline:clamp(1.25rem,4vw,3rem);}
+  .eyebrow{
+    font-family:var(--sans);font-weight:700;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:.5rem;
+    margin-bottom:1rem;
+  }
+  .eyebrow::before{content:"";width:18px;height:1px;background:var(--amber);display:inline-block;}
+  section{padding-block:clamp(4.5rem,9vw,7.5rem);position:relative;}
+  .section-head{max-width:640px;margin-bottom:clamp(2.5rem,5vw,4rem);}
+  .section-head.center{margin-inline:auto;text-align:center;}
+  .section-head h2{font-size:clamp(1.9rem,3.6vw,3rem);}
+  .section-head p{margin-top:1rem;color:var(--ink-muted);font-size:1.05rem;max-width:52ch;}
+  .on-dark .section-head p{color:var(--pine-muted);}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+    padding:.95rem 1.9rem;border-radius:100px;font-weight:700;font-size:.95rem;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--amber);color:var(--pine);}
+  .btn-primary:hover{background:var(--amber-light);transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(193,131,46,.55);}
+  .btn-ghost{background:transparent;color:inherit;border:1.5px solid var(--line-light);}
+  .btn-ghost:hover{border-color:var(--amber);color:var(--amber);}
+  .on-dark .btn-ghost{border-color:var(--line-dark);}
+  .on-dark .btn-ghost:hover{border-color:var(--amber-light);color:var(--amber-light);}
+
+  /* ============ NAV ============ */
+  .nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(20,36,32,.88);backdrop-filter:blur(10px);
+    color:var(--pine-text);border-bottom:1px solid var(--line-dark);
+  }
+  .nav-inner{max-width:var(--container);margin-inline:auto;padding:1rem clamp(1.25rem,4vw,3rem);
+    display:flex;align-items:center;justify-content:space-between;gap:1.5rem;}
+  .logo{display:flex;align-items:baseline;gap:.4rem;font-size:1.15rem;}
+  .logo .name{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--pine-text);}
+  .logo .mark{font-weight:800;letter-spacing:.18em;font-size:.62em;color:var(--amber-light);text-transform:uppercase;}
+  .logo .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block;margin-inline:.1rem;}
+  .nav-links{display:flex;align-items:center;gap:clamp(1rem,2vw,2rem);font-size:.92rem;}
+  .nav-links a{opacity:.85;transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;color:var(--amber-light);}
+  .nav-cta{display:flex;align-items:center;gap:1rem;}
+  .burger{display:none;width:34px;height:34px;flex-direction:column;justify-content:center;gap:5px;}
+  .burger span{width:100%;height:2px;background:var(--pine-text);border-radius:2px;transition:transform .25s,opacity .25s;}
+
+  /* ============ HERO ============ */
+  .hero{
+    background:var(--pine);color:var(--pine-text);
+    padding-block:clamp(3.5rem,8vw,6rem);
+    overflow:hidden;
+  }
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4rem);align-items:center;}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);color:var(--pine-text);}
+  .hero h1 em{font-style:italic;color:var(--amber-light);}
+  .hero .lede{margin-top:1.5rem;font-size:1.1rem;color:var(--pine-muted);max-width:46ch;}
+  .hero .cta-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.25rem;}
+  .trust-row{margin-top:2.75rem;display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;font-size:.85rem;color:var(--pine-muted);}
+  .trust-row li{display:flex;align-items:center;gap:.5rem;}
+  .trust-row li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--amber);flex:none;}
+
+  .hero-art{width:100%;height:auto;}
+  .hero-art .ripple{fill:none;stroke:var(--amber-light);stroke-width:1;transform-box:fill-box;transform-origin:center;}
+  .hero-art .drop{fill:var(--amber);transform-box:fill-box;transform-origin:center;}
+  .hero-art .wave-a{fill:var(--sea);opacity:.55;}
+  .hero-art .wave-b{fill:var(--sea);opacity:.3;}
+  @media (prefers-reduced-motion: no-preference){
+    .hero-art .drop{animation:breathe 6s ease-in-out infinite;}
+    .hero-art .r1{animation:ripple 4s ease-out infinite;}
+    .hero-art .r2{animation:ripple 4s ease-out .7s infinite;}
+    .hero-art .r3{animation:ripple 4s ease-out 1.4s infinite;}
+  }
+  @keyframes breathe{0%,100%{transform:scale(1);}50%{transform:scale(1.045);}}
+  @keyframes ripple{0%{transform:scale(.75);opacity:.55;}100%{transform:scale(1.35);opacity:0;}}
+
+  /* ============ ABOUT ============ */
+  .about .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,5rem);align-items:start;}
+  .about .signature{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(2.6rem,5vw,4rem);color:var(--sea);line-height:1;}
+  .about p{color:var(--ink-muted);max-width:56ch;}
+  .about p + p{margin-top:1.1rem;}
+  .pillars{margin-top:clamp(2.5rem,5vw,3.5rem);display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;grid-column:1 / -1;}
+  .pillar{background:var(--paper);border:1px solid var(--line-light);border-radius:var(--radius);padding:1.75rem;}
+  .pillar h4{font-family:var(--sans);font-weight:700;font-size:1rem;margin-bottom:.6rem;}
+  .pillar p{font-size:.92rem;color:var(--ink-muted);max-width:none;}
+
+  /* ============ SERVICES ============ */
+  .services{background:var(--sand);}
+  .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+  .service-card{
+    background:var(--paper);border-radius:var(--radius);padding:2rem;
+    border:1px solid var(--line-light);box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:.9rem;transition:transform .3s ease;
+  }
+  .service-card:hover{transform:translateY(-4px);}
+  .service-card h3{font-size:1.2rem;}
+  .service-card p{color:var(--ink-muted);font-size:.94rem;flex:1;}
+  .service-meta{display:flex;justify-content:space-between;align-items:center;font-size:.85rem;
+    padding-top:.9rem;border-top:1px dashed var(--line-light);color:var(--ink-muted);}
+  .service-meta strong{color:var(--amber);font-family:var(--sans);}
+
+  /* ============ VOUCHERS BANNER ============ */
+  .vouchers{background:linear-gradient(120deg,var(--amber) 0%,var(--amber-light) 100%);color:var(--pine);}
+  .vouchers .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem;}
+  .vouchers h3{font-size:clamp(1.5rem,3vw,2.1rem);max-width:24ch;}
+  .vouchers p{max-width:42ch;margin-top:.5rem;color:rgba(20,36,32,.78);}
+  .vouchers .btn-primary{background:var(--pine);color:var(--pine-text);}
+  .vouchers .btn-primary:hover{background:#0d1a17;}
+
+  /* ============ PROCESS ============ */
+  .process{background:var(--sand);}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;position:relative;}
+  .steps::before{content:"";position:absolute;top:1.4rem;left:5%;right:5%;height:1px;background:var(--line-light);z-index:0;}
+  .step{position:relative;z-index:1;}
+  .step .num{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--amber);background:var(--sand);display:inline-block;padding-right:.6rem;}
+  .step h4{margin-top:.9rem;font-size:1.05rem;font-family:var(--sans);font-weight:700;}
+  .step p{margin-top:.5rem;color:var(--ink-muted);font-size:.92rem;}
+
+  /* ============ PRICING ============ */
+  .pricing{background:var(--pine);color:var(--pine-text);}
+  .price-note{color:var(--pine-muted);font-size:.9rem;margin-bottom:2.5rem;max-width:60ch;}
+  .menu-list{display:grid;gap:1.1rem;}
+  .menu-item{display:flex;align-items:baseline;gap:.75rem;}
+  .menu-item .leader{flex:1;border-bottom:2px dotted var(--line-dark);height:1px;margin-bottom:.3rem;}
+  .menu-item .name{font-size:1.05rem;}
+  .menu-item .name small{display:block;color:var(--pine-muted);font-size:.8rem;margin-top:.15rem;}
+  .menu-item .price{font-family:var(--serif);font-style:italic;color:var(--amber-light);font-size:1.15rem;white-space:nowrap;}
+
+  /* ============ AREA ============ */
+  .area{background:var(--sand);}
+  .area .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center;}
+  .area p{color:var(--ink-muted);max-width:50ch;}
+  .area .towns{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.6rem;}
+  .area .towns span{background:var(--paper);border:1px solid var(--line-light);border-radius:100px;padding:.4rem 1rem;font-size:.85rem;}
+  .area-art{background:var(--paper);border:1px solid var(--line-light);border-radius:var(--radius);padding:2.5rem;}
+  .area-wave-a{stroke:var(--sea);opacity:.5;}
+  .area-wave-b{stroke:var(--sea);opacity:.3;}
+  .area-drop{fill:var(--amber);}
+  .area-dot{fill:var(--pine);}
+
+  /* ============ FAQ ============ */
+  .faq{background:var(--sand);}
+  .faq-list{max-width:760px;display:grid;gap:1rem;}
+  details{background:var(--paper);border:1px solid var(--line-light);border-radius:16px;padding:1.3rem 1.6rem;}
+  summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";font-family:var(--serif);font-size:1.4rem;color:var(--amber);flex:none;transition:transform .25s;}
+  details[open] summary::after{transform:rotate(45deg);}
+  details p{margin-top:.9rem;color:var(--ink-muted);font-size:.95rem;}
+
+  /* ============ CONTACT ============ */
+  .contact{background:var(--pine);color:var(--pine-text);}
+  .contact .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2.5rem,5vw,5rem);}
+  .info-list{display:grid;gap:1.5rem;margin-top:2rem;}
+  .info-list li{border-bottom:1px solid var(--line-dark);padding-bottom:1.2rem;}
+  .info-list .label{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pine-muted);margin-bottom:.35rem;}
+  .info-list .value{font-family:var(--serif);font-size:1.2rem;color:var(--pine-text);}
+  .social-row{display:flex;gap:1rem;margin-top:2rem;}
+  .social-row a{border:1px solid var(--line-dark);border-radius:100px;padding:.55rem 1.3rem;font-size:.85rem;}
+  .social-row a:hover{border-color:var(--amber-light);color:var(--amber-light);}
+
+  .form{background:var(--pine-2);border-radius:var(--radius);padding:clamp(1.75rem,4vw,2.75rem);border:1px solid var(--line-dark);}
+  .form-row{display:grid;gap:.4rem;margin-bottom:1.3rem;}
+  .form-row label{font-size:.8rem;color:var(--pine-muted);letter-spacing:.04em;}
+  .form-row input,.form-row textarea{
+    background:transparent;border:none;border-bottom:1.5px solid var(--line-dark);
+    padding:.6rem .1rem;color:var(--pine-text);font-family:var(--sans);font-size:1rem;
+    transition:border-color .2s;
+  }
+  .form-row input:focus,.form-row textarea:focus{border-color:var(--amber-light);}
+  .form-row textarea{resize:vertical;min-height:90px;}
+  .form .btn-primary{width:100%;margin-top:.5rem;padding-block:1.05rem;}
+  .form-note{font-size:.78rem;color:var(--pine-muted);margin-top:1rem;}
+
+  /* ============ FOOTER ============ */
+  footer{background:#0F1F1B;color:var(--pine-muted);padding-block:2.75rem;}
+  .footer-inner{max-width:var(--container);margin-inline:auto;padding-inline:clamp(1.25rem,4vw,3rem);
+    display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.25rem;font-size:.85rem;}
+  .footer-inner .logo .name{color:var(--pine-text);}
+  .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
+  .footer-links a:hover{color:var(--amber-light);}
+
+  /* ============ MOBILE STICKY CTA ============ */
+  .mobile-cta{
+    position:fixed;left:0;right:0;bottom:0;z-index:150;display:none;
+    padding:.8rem 1rem calc(.8rem + env(safe-area-inset-bottom));
+    background:rgba(20,36,32,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line-dark);
+  }
+  .mobile-cta .btn-primary{width:100%;}
+
+  /* ============ REVEAL ANIMATION ============ */
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
+    .reveal.in-view{opacity:1;transform:translateY(0);}
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:920px){
+    .nav-links,.nav-cta .btn-ghost{display:none;}
+    .burger{display:flex;}
+    .nav.open .nav-links{
+      display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;
+      background:var(--pine);padding:1.5rem clamp(1.25rem,4vw,3rem) 2rem;gap:1.25rem;border-top:1px solid var(--line-dark);
+    }
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-art{max-width:340px;margin-inline:auto;order:-1;}
+    .about .wrap{grid-template-columns:1fr;}
+    .pillars{grid-template-columns:1fr;}
+    .service-grid{grid-template-columns:repeat(2,1fr);}
+    .steps{grid-template-columns:1fr 1fr;row-gap:2.5rem;}
+    .steps::before{display:none;}
+    .area .wrap{grid-template-columns:1fr;}
+    .contact .wrap{grid-template-columns:1fr;}
+    .mobile-cta{display:block;}
+    body{padding-bottom:4.5rem;}
+  }
+  @media (max-width:600px){
+    .service-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;}
+    .vouchers .wrap{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Przejdź do treści</a>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#home" aria-label="Mika Masaże — strona główna">
+      <span class="name">Mika</span><span class="dot" aria-hidden="true"></span><span class="mark">Masaże</span>
+    </a>
+    <nav class="nav-links" aria-label="Nawigacja główna">
+      <a href="#o-mnie">O mnie</a>
+      <a href="#uslugi">Usługi</a>
+      <a href="#cennik">Cennik</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="#kontakt">Zadzwoń</a>
+      <a class="btn btn-primary" href="#kontakt">Umów wizytę</a>
+      <button class="burger" id="burger" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Gabinet masażu · Koszalin</p>
+        <h1>Masaż, po którym<br><em>oddychasz inaczej.</em></h1>
+        <p class="lede">Indywidualnie dobrane techniki, cisza i pełna uwaga poświęcona wyłącznie Tobie. Masaże klasyczne i upiększające w kameralnym gabinecie w Koszalinie.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#kontakt">Umów wizytę</a>
+          <a class="btn btn-ghost" href="#uslugi">Zobacz usługi</a>
+        </div>
+        <ul class="trust-row">
+          <li>Indywidualny dobór technik</li>
+          <li>Pełen relaks i odprężenie</li>
+          <li>Możliwość dojazdu</li>
+        </ul>
+      </div>
+      <svg class="hero-art reveal" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustracja kropli bursztynu nad falami Bałtyku">
+        <g class="ripples">
+          <circle class="ripple r1" cx="200" cy="235" r="45"/>
+          <circle class="ripple r2" cx="200" cy="235" r="75"/>
+          <circle class="ripple r3" cx="200" cy="235" r="105"/>
+        </g>
+        <path class="drop" d="M200,60 C200,60 120,195 120,255 C120,305 155,340 200,340 C245,340 280,305 280,255 C280,195 200,60 200,60 Z"/>
+        <path class="wave-a" d="M0,338 C50,318 100,358 150,338 C200,318 250,358 300,338 C350,318 400,338 400,338 L400,400 L0,400 Z"/>
+        <path class="wave-b" d="M0,360 C60,346 120,374 180,360 C240,346 300,374 360,360 C385,352 400,358 400,358 L400,400 L0,400 Z"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="o-mnie">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">O Mice</p>
+        <p class="signature">Cześć, tu Mika.</p>
+      </div>
+      <div class="reveal">
+        <h2 style="font-size:clamp(1.5rem,2.6vw,2rem);margin-bottom:1.1rem;">Masaż traktuję jak rzemiosło, nie usługę z cennika.</h2>
+        <p>Masażem zajmuję się od lat i nadal uczę się nowych technik, żeby każda wizyta była dopasowana do Ciebie, a nie do jednego, sztywnego schematu. Łączę różnorodne techniki masażu klasycznego w zależności od tego, czego danego dnia potrzebuje Twoje ciało.</p>
+        <p>Zanim zacznę pracę, zawsze pytam, czego unikać i na czym Ci dziś zależy. Czasem to intensywniejsza praca, a czasem — cisza i bardzo wolne tempo dla maksymalnego relaksu.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <h4>Indywidualne podejście</h4>
+          <p>Każda wizyta zaczyna się od rozmowy, nie od gotowego planu zabiegu.</p>
+        </div>
+        <div class="pillar reveal">
+          <h4>Pełna dyskrecja</h4>
+          <p>Kameralny gabinet, spokojna atmosfera i zero pośpiechu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="services" id="uslugi">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Usługi</p>
+        <h2>Masaż dobrany do Ciebie, nie z szablonu</h2>
+        <p>Poniżej znajdziesz dostępne zabiegi. Jeśli nie wiesz, co będzie dla Ciebie najlepsze — po prostu napisz lub zadzwoń, wspólnie dobierzemy odpowiednią technikę.</p>
+      </div>
+      <div class="service-grid">
+        
+        <article class="service-card reveal">
+          <h3>Masaż klasyczny całego ciała</h3>
+          <p>Tradycyjne techniki masowania, które redukują napięcie mięśni i poprawiają krążenie.</p>
+          <div class="service-meta"><span>60 min</span><strong>130 zł</strong></div>
+        </article>
+
+        <article class="service-card reveal">
+          <h3>Masaż aromaterapeutyczny</h3>
+          <p>Wysoce relaksujący masaż z wykorzystaniem ciepłych olejków dobranych do Twojego nastroju.</p>
+          <div class="service-meta"><span>80 min</span><strong>180 zł</strong></div>
+        </article>
+
+        <article class="service-card reveal">
+          <h3>Masaż pałeczkami bambusowymi</h3>
+          <p>Głęboki masaż drenujący i modelujący przy użyciu gładkich pałeczek bambusowych.</p>
+          <div class="service-meta"><span>75 min</span><strong>170 zł</strong></div>
+        </article>
+        
+        <article class="service-card reveal">
+          <h3>Masaż Kobido</h3>
+          <p>Japoński, intensywny masaż liftingujący twarz. Przynosi naturalne odmłodzenie i relaks.</p>
+          <div class="service-meta"><span>75 min</span><strong>150 zł</strong></div>
+        </article>
+
+        <article class="service-card reveal">
+          <h3>Indyjski masaż głowy</h3>
+          <p>Głęboko odprężający masaż głowy, karku i ramion. Uwalnia od stresu i napięć.</p>
+          <div class="service-meta"><span>30 min</span><strong>80 zł</strong></div>
+        </article>
+
+        <article class="service-card reveal">
+          <h3>Masaż szklanymi kulami (twarz, szyja, dekolt)</h3>
+          <p>Chłodzący, delikatny i kojący masaż zmniejszający obrzęki i ujędrniający skórę.</p>
+          <div class="service-meta"><span>30 min</span><strong>70 zł</strong></div>
+        </article>
+
+        <article class="service-card reveal">
+          <h3>Masaż kręgosłupa</h3>
+          <p>Rozluźnienie najbardziej napiętych partii w obrębie pleców i karku.</p>
+          <div class="service-meta"><span>30 min</span><strong>70 zł</strong></div>
+        </article>
+
+        <article class="service-card reveal">
+          <h3>Masaż twarzy, szyi i dekoltu</h3>
+          <p>Odprężenie i pielęgnacja delikatnych okolic szyi i dekoltu.</p>
+          <div class="service-meta"><span>30 min</span><strong>70 zł</strong></div>
+        </article>
+        
+        <article class="service-card reveal">
+          <h3>Masaż stóp</h3>
+          <p>Ulgę dla zmęczonych nóg. Poprawia krążenie i wpływa na ogólne odprężenie organizmu.</p>
+          <div class="service-meta"><span>30 min</span><strong>70 zł</strong></div>
+        </article>
+
+        <article class="service-card reveal">
+          <h3>Masaż gorącą świecą</h3>
+          <p>Ciepły, zmysłowy masaż specjalnym woskiem, który cudownie nawilża skórę i rozgrzewa.</p>
+          <div class="service-meta"><span>30 / 60 min</span><strong>80 / 130 zł</strong></div>
+        </article>
+
+        <article class="service-card reveal">
+          <h3>Peeling całego ciała</h3>
+          <p>Zabieg wygładzający i przygotowujący skórę do dalszej pielęgnacji lub masażu.</p>
+          <div class="service-meta"><span>30 min</span><strong>80 zł</strong></div>
+        </article>
+
+        <article class="service-card reveal">
+          <h3>Masaż gorącymi kamieniami</h3>
+          <p>Ciepło rozgrzanych kamieni rozluźnia napięte mięśnie i wprowadza w stan głębokiego relaksu.</p>
+          <div class="service-meta"><span>75 min</span><strong>180 zł</strong></div>
+        </article>
+
+        <article class="service-card reveal">
+          <h3>Świecowanie uszu</h3>
+          <p>Relaksujący zabieg termiczny. Wycisza, relaksuje i przynosi ulgę przy napięciach stresowych.</p>
+          <div class="service-meta"><span>20 min</span><strong>60 zł</strong></div>
+        </article>
+        
+        <article class="service-card reveal">
+          <h3>Masaż z dojazdem</h3>
+          <p>Twój gabinet tam, gdzie Ty — na terenie Koszalina i okolicznych miejscowości.</p>
+          <div class="service-meta"><span>wg ustaleń</span><strong>od 30 zł</strong></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VOUCHERS ============ -->
+  <section class="vouchers">
+    <div class="wrap reveal">
+      <div>
+        <h3>Podaruj chwilę spokoju</h3>
+        <p>Bon podarunkowy na wybrany masaż — trafiony prezent dla kogoś, kto zasługuje na oddech od codzienności.</p>
+      </div>
+      <a class="btn btn-primary" href="#kontakt">Zapytaj o bon</a>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="process" id="proces">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Jak to wygląda</p>
+        <h2>Cztery kroki do chwili dla siebie</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="num">01</span>
+          <h4>Kontakt</h4>
+          <p>Zadzwoń, napisz SMS-a lub skorzystaj z formularza — znajdziemy dogodny termin.</p>
+        </div>
+        <div class="step reveal">
+          <span class="num">02</span>
+          <h4>Wywiad</h4>
+          <p>Na miejscu porozmawiamy o Twoich potrzebach, dolegliwościach i oczekiwaniach.</p>
+        </div>
+        <div class="step reveal">
+          <span class="num">03</span>
+          <h4>Masaż</h4>
+          <p>Wybrana technika, spokojna atmosfera i pełne skupienie na Tobie.</p>
+        </div>
+        <div class="step reveal">
+          <span class="num">04</span>
+          <h4>Po wizycie</h4>
+          <p>Kilka wskazówek na później i dobre samopoczucie, które zostaje na dłużej.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="pricing on-dark" id="cennik">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Cennik</p>
+        <h2>Ceny zabiegów</h2>
+      </div>
+      <p class="price-note reveal">Ceny mogą się różnić w zależności od czasu trwania zabiegu oraz ewentualnego dojazdu. Dokładną wycenę potwierdzam podczas kontaktu.</p>
+      <div class="menu-list reveal">
+        <div class="menu-item"><span class="name">Masaż klasyczny całego ciała<small>60 min</small></span><span class="leader"></span><span class="price">130 zł</span></div>
+        <div class="menu-item"><span class="name">Masaż aromaterapeutyczny<small>80 min</small></span><span class="leader"></span><span class="price">180 zł</span></div>
+        <div class="menu-item"><span class="name">Masaż pałeczkami bambusowymi<small>75 min</small></span><span class="leader"></span><span class="price">170 zł</span></div>
+        <div class="menu-item"><span class="name">Masaż Kobido<small>75 min</small></span><span class="leader"></span><span class="price">150 zł</span></div>
+        <div class="menu-item"><span class="name">Indyjski masaż głowy<small>30 min</small></span><span class="leader"></span><span class="price">80 zł</span></div>
+        <div class="menu-item"><span class="name">Masaż szklanymi kulami (twarz, szyja, dekolt)<small>30 min</small></span><span class="leader"></span><span class="price">70 zł</span></div>
+        <div class="menu-item"><span class="name">Masaż kręgosłupa<small>30 min</small></span><span class="leader"></span><span class="price">70 zł</span></div>
+        <div class="menu-item"><span class="name">Masaż szyi i dekoltu<small>30 min</small></span><span class="leader"></span><span class="price">70 zł</span></div>
+        <div class="menu-item"><span class="name">Masaż stóp<small>30 min</small></span><span class="leader"></span><span class="price">70 zł</span></div>
+        <div class="menu-item"><span class="name">Masaż gorącą świecą<small>30 lub 60 min</small></span><span class="leader"></span><span class="price">80 / 130 zł</span></div>
+        <div class="menu-item"><span class="name">Peeling całego ciała<small>30 min</small></span><span class="leader"></span><span class="price">80 zł</span></div>
+        <div class="menu-item"><span class="name">Masaż gorącymi kamieniami<small>75 min</small></span><span class="leader"></span><span class="price">180 zł</span></div>
+        <div class="menu-item"><span class="name">Świecowanie uszu<small>20 min</small></span><span class="leader"></span><span class="price">60 zł</span></div>
+        <div class="menu-item"><span class="name">Dojazd do klienta<small>Koszalin</small></span><span class="leader"></span><span class="price">od 30 zł</span></div>
+        <div class="menu-item"><span class="name">Bon podarunkowy<small>dowolny zabieg</small></span><span class="leader"></span><span class="price">do ustalenia</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AREA ============ -->
+  <section class="area" id="dojazd">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Zasięg</p>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:1rem;">Koszalin i okolice</h2>
+        <p>Gabinet znajduje się w Koszalinie. Dokładny adres przekazuję po potwierdzeniu wizyty. Dla wybranych zabiegów możliwy jest też dojazd do klienta — na terenie miasta oraz w promieniu około 20 km, w zależności od dostępności terminów.</p>
+        <div class="towns">
+          <span>Koszalin</span><span>Sianów</span><span>Mielno</span><span>Bobolice</span><span>Manowo</span>
+        </div>
+      </div>
+      <div class="area-art reveal">
+        <svg class="area-svg" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stylizowana ilustracja okolic Koszalina">
+          <path class="area-wave-a" d="M10,150 C60,130 100,170 150,150 C200,130 240,170 290,150" fill="none" stroke-width="2"/>
+          <path class="area-wave-b" d="M10,175 C60,158 100,192 150,175 C200,158 240,192 290,175" fill="none" stroke-width="2"/>
+          <path class="area-drop" d="M150,40 C150,40 118,92 118,118 a32,32 0 0 0 64,0 C182,92 150,40 150,40 Z"/>
+          <circle class="area-dot" cx="150" cy="118" r="3"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Pytania</p>
+        <h2>Zanim zadzwonisz</h2>
+      </div>
+      <div class="faq-list reveal">
+        <details>
+          <summary>Czy muszę się wcześniej umawiać?</summary>
+          <p>Tak — przyjmuję wyłącznie na umówione wizyty, dzięki temu mogę poświęcić Ci pełną uwagę i czas.</p>
+        </details>
+        <details>
+          <summary>Co powinnam/powinienem zabrać ze sobą?</summary>
+          <p>Wystarczy wygodny strój i dobry humor — o ręczniki i kosmetyki dbam ja.</p>
+        </details>
+        <details>
+          <summary>Czy mogę przełożyć lub odwołać wizytę?</summary>
+          <p>Oczywiście — proszę tylko o wcześniejszą informację, żebym mogła zaproponować ten termin komuś innemu.</p>
+        </details>
+        <details>
+          <summary>Czy siła nacisku jest dopasowywana indywidualnie?</summary>
+          <p>Zawsze — na bieżąco pytam, jak się czujesz, i dostosowuję intensywność masażu.</p>
+        </details>
+        <details>
+          <summary>Czy oferujecie bony podarunkowe?</summary>
+          <p>Tak — bon możesz zamówić telefonicznie, mailowo lub bezpośrednio w gabinecie.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact on-dark" id="kontakt">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Kontakt</p>
+        <h2>Umówmy Twoją wizytę</h2>
+        <p style="color:var(--pine-muted);margin-top:1rem;max-width:44ch;">Napisz, zadzwoń albo wypełnij formularz — odezwę się najszybciej, jak to możliwe.</p>
+        <ul class="info-list">
+          <li><div class="label">Telefon</div><div class="value">881 184 720</div></li>
+          <li><div class="label">E-mail</div><div class="value">mikamasazekoszalin@gmail.com</div></li>
+          <li><div class="label">Lokalizacja</div><div class="value">Koszalin<br><span style="font-size:0.7em; font-family:var(--sans); color:var(--pine-muted);">szczegóły po umówieniu wizyty</span></div></li>
+          <li><div class="label">Godziny otwarcia</div><div class="value">12 - 19</div></li>
+        </ul>
+        <div class="social-row">
+          <a href="https://www.instagram.com/mikamasaze/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="#">Facebook</a>
+        </div>
+      </div>
+      <form class="form reveal" id="contact-form">
+        <div class="form-row">
+          <label for="f-name">Imię</label>
+          <input id="f-name" name="name" type="text" required autocomplete="name">
+        </div>
+        <div class="form-row">
+          <label for="f-contact">Telefon lub Email</label>
+          <input id="f-contact" name="contact" type="text" required autocomplete="tel">
+        </div>
+        <div class="form-row">
+          <label for="f-message">Wiadomość</label>
+          <textarea id="f-message" name="message" required placeholder="Np. jaki zabieg Cię interesuje i preferowany termin"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Wyślij wiadomość</button>
+        <p class="form-note">Wiadomość otworzy się w Twoim programie pocztowym — kliknij „wyślij”, aby dokończyć.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <a class="logo" href="#home">
+      <span class="name">Mika</span><span class="dot" aria-hidden="true"></span><span class="mark">Masaże</span>
+    </a>
+    <div class="footer-links">
+      <a href="#o-mnie">O mnie</a>
+      <a href="#uslugi">Usługi</a>
+      <a href="#cennik">Cennik</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <p>© <span id="year"></span> Mika Masaże, Koszalin</p>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <a class="btn btn-primary" href="#kontakt">Umów wizytę</a>
+</div>
+
+<script>
+  // Rok w stopce
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Menu mobilne
+  const nav = document.getElementById('nav');
+  const burger = document.getElementById('burger');
+  burger.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  nav.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => { nav.classList.remove('open'); burger.setAttribute('aria-expanded','false'); });
+  });
+
+  // Formularz kontaktowy -> mailto
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = form.name.value.trim();
+    const contact = form.contact.value.trim();
+    const message = form.message.value.trim();
+    const subject = encodeURIComponent('Zapytanie o wizytę — Mika Masaże');
+    const body = encodeURIComponent(`Imię: ${name}\nKontakt: ${contact}\n\nWiadomość:\n${message}`);
+    // UWAGA: podmień poniższy adres e-mail na docelowy
+    window.location.href = `mailto:mikamasazekoszalin@gmail.com?subject=${subject}&body=${body}`;
+  });
+
+  // Animacja pojawiania się sekcji
+  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
+  }
+</script>
+</body>
+</html>
