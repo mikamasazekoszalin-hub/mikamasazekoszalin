@@ -3,11 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mika Masaże — Gabinet masażu w Koszalinie</title>
-<meta name="description" content="Mika Masaże — kameralny gabinet masażu w Koszalinie. Masaże klasyczne i upiększające. Indywidualne podejście, możliwość dojazdu.">
-<meta property="og:title" content="Mika Masaże — Gabinet masażu w Koszalinie">
-<meta property="og:description" content="Masaż, po którym oddychasz inaczej. Umów wizytę w Koszalinie.">
+<title>Mika Masaże — masaż Koszalin | Kobido, klasyczny, relaksacyjny</title>
+<meta name="description" content="Gabinet masażu w Koszalinie — masaż klasyczny, Kobido, bambusowy i gorącymi kamieniami. Indywidualne podejście, możliwość dojazdu. Umów wizytę.">
+<meta name="keywords" content="masaż Koszalin, masaż Kobido Koszalin, masaż klasyczny Koszalin, masaż relaksacyjny, gabinet masażu Koszalin">
+<meta property="og:title" content="Mika Masaże — masaż Koszalin | Kobido, klasyczny, relaksacyjny">
+<meta property="og:description" content="Masaż, po którym oddychasz inaczej. Masaż klasyczny, Kobido, bambusowy i gorącymi kamieniami w Koszalinie.">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<link rel="canonical" href="https://mikamasazekoszalin-hub.github.io/mikamasazekoszalin/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  "name": "Mika Masaże",
+  "description": "Kameralny gabinet masażu w Koszalinie. Masaż klasyczny, Kobido, bambusowy, gorącymi kamieniami i inne zabiegi relaksacyjne.",
+  "url": "https://mikamasazekoszalin-hub.github.io/mikamasazekoszalin/",
+  "telephone": "+48881184720",
+  "email": "mikamasazekoszalin@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Koszalin",
+    "addressRegion": "zachodniopomorskie",
+    "addressCountry": "PL"
+  },
+  "areaServed": ["Koszalin", "Sianów", "Mielno", "Bobolice", "Manowo"],
+  "priceRange": "60-180 PLN",
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "12:00",
+    "closes": "19:00"
+  }],
+  "sameAs": ["https://www.instagram.com/mikamasaze/"]
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C16 3 7 15.5 7 21.5a9 9 0 0 0 18 0C25 15.5 16 3 16 3Z' fill='%23C1832E'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -172,6 +201,87 @@
   .step h4{margin-top:.9rem;font-size:1.05rem;font-family:var(--sans);font-weight:700;}
   .step p{margin-top:.5rem;color:var(--ink-muted);font-size:.92rem;}
 
+  /* ============ TESTIMONIALS ============ */
+  .testimonials{background:var(--paper);}
+  .quote-viewport{position:relative;}
+
+  /* Karty mają szerokość ułamka kontenera, więc mieszczą się co do piksela
+     i żadna nie jest ucinana na krawędzi. Snap „start" = płynne kartkowanie. */
+  .quote-track{
+    display:flex;gap:1.25rem;
+    overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    padding:.5rem .25rem 1.25rem;
+    margin-inline:-.25rem;
+    scrollbar-width:none;-ms-overflow-style:none;
+    overscroll-behavior-x:contain;
+  }
+  .quote-track::-webkit-scrollbar{display:none;}
+
+  .quote-card{
+    flex:0 0 calc((100% - 2.5rem) / 3);
+    scroll-snap-align:start;
+    background:var(--sand);border:1px solid var(--line-light);border-radius:var(--radius);
+    padding:2.25rem 1.75rem 1.75rem;text-align:center;
+    display:flex;flex-direction:column;
+    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .quote-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(193,131,46,.35);}
+  .quote-card::before{
+    content:"\201C";font-family:var(--serif);font-weight:600;font-size:4rem;line-height:1;
+    color:var(--amber);opacity:.35;display:block;margin-bottom:.15rem;
+  }
+  .quote-card blockquote{
+    font-family:var(--serif);font-style:italic;font-weight:500;
+    font-size:clamp(1.15rem,1.9vw,1.4rem);color:var(--ink);line-height:1.34;
+    text-wrap:balance;              /* równa długość wierszy zamiast sieroty na końcu */
+  }
+  /* Zdanie owinięte tym spanem nie zostanie rozbite w połowie:
+     jeśli się nie mieści, przechodzi do następnego wiersza w całości. */
+  .quote-card blockquote .keep{display:inline-block;}
+  /* Gdy podział wierszy jest ustawiony ręcznie (<br>), wyłączamy
+     automatyczne wyrównywanie — inaczej oba mechanizmy by się gryzły. */
+  .quote-card blockquote.manual{text-wrap:normal;}
+  .quote-card blockquote.short{font-size:clamp(1.5rem,2.8vw,2rem);}
+  .quote-card figcaption{margin-top:auto;padding-top:1.25rem;display:flex;flex-direction:column;gap:.15rem;}
+  .quote-card .who{font-weight:700;font-size:.95rem;color:var(--ink);}
+  .quote-card .what{font-size:.85rem;color:var(--ink-muted);}
+
+  @media (max-width:900px){
+    .quote-card{flex:0 0 calc((100% - 1.25rem) / 2);}
+  }
+  @media (max-width:640px){
+    .quote-card{flex:0 0 86%;}
+  }
+
+  /* Sterowanie */
+  .quote-controls{display:flex;align-items:center;justify-content:center;gap:1.25rem;margin-top:.25rem;}
+  .q-arrow{
+    width:44px;height:44px;border-radius:50%;flex:none;
+    border:1.5px solid var(--line-light);background:transparent;color:var(--ink);
+    display:grid;place-items:center;transition:background .2s,border-color .2s,color .2s,opacity .2s;
+  }
+  .q-arrow:hover:not(:disabled){background:var(--amber);border-color:var(--amber);color:var(--pine);}
+  .q-arrow:disabled{opacity:.28;cursor:default;}
+  .q-arrow svg{width:16px;height:16px;}
+  .quote-dots{display:flex;gap:.5rem;}
+  .quote-dots button{
+    width:8px;height:8px;border-radius:50%;padding:0;
+    background:var(--line-light);transition:background .25s,width .25s;
+  }
+  .quote-dots button[aria-current="true"]{background:var(--amber);width:22px;border-radius:100px;}
+  .quote-controls.is-hidden{display:none;}
+
+  .quote-note{
+    text-align:center;margin-top:1.5rem;color:var(--ink-muted);
+    font-family:var(--serif);font-style:italic;font-size:1.02rem;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .quote-track{scroll-behavior:auto;}
+    .quote-card{transition:none;}
+  }
+
   /* ============ PRICING ============ */
   .pricing{background:var(--pine);color:var(--pine-text);}
   .price-note{color:var(--pine-muted);font-size:.9rem;margin-bottom:2.5rem;max-width:60ch;}
@@ -288,6 +398,7 @@
     <nav class="nav-links" aria-label="Nawigacja główna">
       <a href="#o-mnie">O mnie</a>
       <a href="#uslugi">Usługi</a>
+      <a href="#opinie">Opinie</a>
       <a href="#cennik">Cennik</a>
       <a href="#faq">FAQ</a>
       <a href="#kontakt">Kontakt</a>
@@ -413,20 +524,20 @@
 
         <article class="service-card reveal">
           <h3>Masaż twarzy, szyi i dekoltu</h3>
-          <p>Odprężenie i pielęgnacja delikatnych okolic szyi i dekoltu.</p>
+          <p>Odprężenie i pielęgnacja twarzy, delikatnych okolic szyi i dekoltu.</p>
           <div class="service-meta"><span>30 min</span><strong>70 zł</strong></div>
         </article>
         
         <article class="service-card reveal">
           <h3>Masaż stóp</h3>
-          <p>Ulgę dla zmęczonych nóg. Poprawia krążenie i wpływa na ogólne odprężenie organizmu.</p>
+          <p>Ulga dla zmęczonych nóg. Poprawia krążenie i wpływa na ogólne odprężenie organizmu.</p>
           <div class="service-meta"><span>30 min</span><strong>70 zł</strong></div>
         </article>
 
         <article class="service-card reveal">
           <h3>Masaż gorącą świecą</h3>
-          <p>Ciepły, zmysłowy masaż specjalnym woskiem, który cudownie nawilża skórę i rozgrzewa.</p>
-          <div class="service-meta"><span>30 / 60 min</span><strong>80 / 130 zł</strong></div>
+          <p>Ciepły, rozpieszczający masaż specjalnym woskiem, który cudownie nawilża skórę i rozgrzewa.</p>
+          <div class="service-meta"><span>30 / 60 min</span><strong>80 / 110 zł</strong></div>
         </article>
 
         <article class="service-card reveal">
@@ -443,8 +554,8 @@
 
         <article class="service-card reveal">
           <h3>Świecowanie uszu</h3>
-          <p>Relaksujący zabieg termiczny. Wycisza, relaksuje i przynosi ulgę przy napięciach stresowych.</p>
-          <div class="service-meta"><span>20 min</span><strong>60 zł</strong></div>
+          <p>Kojący rytuał termiczny — po 10 minut na każde ucho. Delikatne ciepło i miarowy szum płomienia wyciszają zmysły i przynoszą ulgę przy napięciu oraz przebodźcowaniu. Po zabiegu warto tego dnia nie moczyć uszu.</p>
+          <div class="service-meta"><span>ok. 30 min</span><strong>70 zł</strong></div>
         </article>
         
         <article class="service-card reveal">
@@ -499,6 +610,58 @@
     </div>
   </section>
 
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="testimonials" id="opinie">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="eyebrow">Opinie</p>
+        <h2>Co mówią klienci</h2>
+      </div>
+      <div class="quote-viewport">
+        <div class="quote-track" id="quote-track" role="region" aria-roledescription="karuzela" aria-label="Opinie klientów" tabindex="0">
+          <figure class="quote-card">
+            <blockquote class="short">Polecam.</blockquote>
+            <figcaption>
+              <span class="who">Ewa G.</span>
+              <span class="what">po masażu Kobido</span>
+            </figcaption>
+          </figure>
+          <figure class="quote-card">
+            <blockquote>Jestem po paru masażach i zawsze jestem zadowolony z usług.</blockquote>
+            <figcaption>
+              <span class="who">Krzysztof S.</span>
+              <span class="what">klient powracający</span>
+            </figcaption>
+          </figure>
+          <figure class="quote-card">
+            <blockquote class="manual">Gorąco polecam za profesjonalne wykonanie <span class="keep">masażu indyjskiego głowy.</span><br><span class="keep">Na pewno jeszcze wrócę.</span></blockquote>
+            <figcaption>
+              <span class="who">Paweł G.</span>
+              <span class="what">po indyjskim masażu głowy</span>
+            </figcaption>
+          </figure>
+          <figure class="quote-card">
+            <blockquote>Polecam — profesjonalizm w podejściu do klienta, miła atmosfera.</blockquote>
+            <figcaption>
+              <span class="who">Katarzyna K.</span>
+              <span class="what">po masażu Kobido</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="quote-controls">
+          <button class="q-arrow" id="q-prev" type="button" aria-label="Poprzednia opinia">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="quote-dots" id="q-dots" role="tablist" aria-label="Wybierz opinię"></div>
+          <button class="q-arrow" id="q-next" type="button" aria-label="Następna opinia">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+      <p class="quote-note reveal">Dziękuję za każdą opinię — to najlepsza rekomendacja, jaką mogę dostać.</p>
+    </div>
+  </section>
+
   <!-- ============ PRICING ============ -->
   <section class="pricing on-dark" id="cennik">
     <div class="wrap">
@@ -515,14 +678,14 @@
         <div class="menu-item"><span class="name">Indyjski masaż głowy<small>30 min</small></span><span class="leader"></span><span class="price">80 zł</span></div>
         <div class="menu-item"><span class="name">Masaż szklanymi kulami (twarz, szyja, dekolt)<small>30 min</small></span><span class="leader"></span><span class="price">70 zł</span></div>
         <div class="menu-item"><span class="name">Masaż kręgosłupa<small>30 min</small></span><span class="leader"></span><span class="price">70 zł</span></div>
-        <div class="menu-item"><span class="name">Masaż szyi i dekoltu<small>30 min</small></span><span class="leader"></span><span class="price">70 zł</span></div>
+        <div class="menu-item"><span class="name">Masaż twarzy, szyi i dekoltu<small>30 min</small></span><span class="leader"></span><span class="price">70 zł</span></div>
         <div class="menu-item"><span class="name">Masaż stóp<small>30 min</small></span><span class="leader"></span><span class="price">70 zł</span></div>
-        <div class="menu-item"><span class="name">Masaż gorącą świecą<small>30 lub 60 min</small></span><span class="leader"></span><span class="price">80 / 130 zł</span></div>
+        <div class="menu-item"><span class="name">Masaż gorącą świecą<small>30 lub 60 min</small></span><span class="leader"></span><span class="price">80 / 110 zł</span></div>
         <div class="menu-item"><span class="name">Peeling całego ciała<small>30 min</small></span><span class="leader"></span><span class="price">80 zł</span></div>
         <div class="menu-item"><span class="name">Masaż gorącymi kamieniami<small>75 min</small></span><span class="leader"></span><span class="price">180 zł</span></div>
-        <div class="menu-item"><span class="name">Świecowanie uszu<small>20 min</small></span><span class="leader"></span><span class="price">60 zł</span></div>
+        <div class="menu-item"><span class="name">Świecowanie uszu<small>ok. 30 min</small></span><span class="leader"></span><span class="price">70 zł</span></div>
         <div class="menu-item"><span class="name">Dojazd do klienta<small>Koszalin</small></span><span class="leader"></span><span class="price">od 30 zł</span></div>
-        <div class="menu-item"><span class="name">Bon podarunkowy<small>dowolny zabieg</small></span><span class="leader"></span><span class="price">do ustalenia</span></div>
+        <div class="menu-item"><span class="name">Bon podarunkowy<small>dowolny zabieg</small></span><span class="leader"></span><span class="price">od 70 zł</span></div>
       </div>
     </div>
   </section>
@@ -574,7 +737,7 @@
           <p>Zawsze — na bieżąco pytam, jak się czujesz, i dostosowuję intensywność masażu.</p>
         </details>
         <details>
-          <summary>Czy oferujecie bony podarunkowe?</summary>
+          <summary>Czy mogę kupić bon podarunkowy?</summary>
           <p>Tak — bon możesz zamówić telefonicznie, mailowo lub bezpośrednio w gabinecie.</p>
         </details>
       </div>
@@ -592,11 +755,12 @@
           <li><div class="label">Telefon</div><div class="value">881 184 720</div></li>
           <li><div class="label">E-mail</div><div class="value">mikamasazekoszalin@gmail.com</div></li>
           <li><div class="label">Lokalizacja</div><div class="value">Koszalin<br><span style="font-size:0.7em; font-family:var(--sans); color:var(--pine-muted);">szczegóły po umówieniu wizyty</span></div></li>
-          <li><div class="label">Godziny otwarcia</div><div class="value">12 - 19</div></li>
+          <li><div class="label">Godziny otwarcia</div><div class="value">pon–sob 12–19</div></li>
         </ul>
         <div class="social-row">
           <a href="https://www.instagram.com/mikamasaze/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="#">Facebook</a>
+          <!-- Gdy powstanie profil na Facebooku, wystarczy odkomentować i wstawić adres:
+          <a href="https://www.facebook.com/TWOJ-PROFIL" target="_blank" rel="noopener noreferrer">Facebook</a> -->
         </div>
       </div>
       <form class="form reveal" id="contact-form">
@@ -605,7 +769,7 @@
           <input id="f-name" name="name" type="text" required autocomplete="name">
         </div>
         <div class="form-row">
-          <label for="f-contact">Telefon lub Email</label>
+          <label for="f-contact">Telefon lub e-mail</label>
           <input id="f-contact" name="contact" type="text" required autocomplete="tel">
         </div>
         <div class="form-row">
@@ -681,6 +845,90 @@
   } else {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
   }
+
+  // Karuzela opinii
+  (function () {
+    const track = document.getElementById('quote-track');
+    if (!track) return;
+    const cards = Array.from(track.querySelectorAll('.quote-card'));
+    const dotsBox = document.getElementById('q-dots');
+    const controls = document.querySelector('.quote-controls');
+    const prev = document.getElementById('q-prev');
+    const next = document.getElementById('q-next');
+    let stops = [];
+
+    // Realne pozycje przewijania: pozycja karty przycięta do maksimum,
+    // a następnie odfiltrowana z duplikatów. Dzięki temu liczba kropek
+    // odpowiada temu, ile faktycznie jest "stron", a nie ile jest kart.
+    function buildStops() {
+      const max = track.scrollWidth - track.clientWidth;
+      const base = cards.length ? cards[0].offsetLeft : 0;
+      const raw = cards.map(c => Math.min(Math.round(c.offsetLeft - base), max));
+      stops = raw.filter((v, i) => i === 0 || v !== raw[i - 1]);
+      if (max <= 1) stops = [0];
+
+      dotsBox.innerHTML = '';
+      stops.forEach((pos, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-label', 'Opinia ' + (i + 1) + ' z ' + stops.length);
+        b.addEventListener('click', () => track.scrollTo({ left: pos, behavior: 'smooth' }));
+        dotsBox.appendChild(b);
+      });
+      controls.classList.toggle('is-hidden', stops.length < 2);
+    }
+
+    function currentStop() {
+      const x = track.scrollLeft;
+      let best = 0, bestDist = Infinity;
+      stops.forEach((pos, i) => {
+        const d = Math.abs(pos - x);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      return best;
+    }
+
+    function sync() {
+      const i = currentStop();
+      Array.from(dotsBox.children).forEach((d, n) =>
+        d.setAttribute('aria-current', n === i ? 'true' : 'false'));
+      const max = track.scrollWidth - track.clientWidth;
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= max - 2;
+    }
+
+    function go(delta) {
+      const i = Math.min(stops.length - 1, Math.max(0, currentStop() + delta));
+      track.scrollTo({ left: stops[i], behavior: 'smooth' });
+    }
+
+    prev.addEventListener('click', () => go(-1));
+    next.addEventListener('click', () => go(1));
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); go(-1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+    });
+
+    let t;
+    track.addEventListener('scroll', () => {
+      clearTimeout(t);
+      t = setTimeout(sync, 60);
+    }, { passive: true });
+
+    let r;
+    window.addEventListener('resize', () => {
+      clearTimeout(r);
+      r = setTimeout(() => { buildStops(); sync(); }, 150);
+    });
+
+    buildStops();
+    sync();
+    // Fonty mogą zmienić wysokość/szerokość kart po załadowaniu
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => { buildStops(); sync(); });
+    }
+  })();
 </script>
 </body>
 </html>
