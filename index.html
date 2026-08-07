@@ -930,5 +930,14 @@
     }
   })();
 </script>
+  
+  <script>
+  // Čištění URL od sledovacích parametrů (UTM, fbclid atd.) po načtení
+  if (window.location.search && window.history && window.history.replaceState) {
+    const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + window.location.hash;
+    window.history.replaceState({}, document.title, cleanUrl);
+  }
+</script>
+  
 </body>
 </html>
